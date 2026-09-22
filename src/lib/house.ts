@@ -1,8 +1,8 @@
 export const HOUSE = {
   name: "Brasas do Tua",
-  phoneDisplay: "924 485 587",
-  phoneTel: "+351924485587",
-  phoneWa: "351924485587",
+  phoneDisplay: "969 149 087",
+  phoneTel: "+351969149087",
+  phoneWa: "351969149087",
   street: "Rua Vasco da Gama, n.º 22",
   postal: "5370-481 Mirandela",
   mapsUrl:
