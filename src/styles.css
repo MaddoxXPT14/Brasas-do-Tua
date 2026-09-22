@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", "Iowan Old Style", Palatino, serif;
+  --font-sans: "Outfit", system-ui, sans-serif;
+
+  --color-ink: #14110e;
+  --color-ink-soft: #5c534a;
+  --color-panel: #221c17;
+  --color-panel-2: #2b241d;
+  --color-line: #3d342c;
+  --color-line-paper: #e2d5c4;
+  --color-paper: #f4ecdf;
+  --color-cream: #f7f1e8;
+  --color-mute: #c4b5a4;
+  --color-ember: #d4652f;
+  --color-ember-deep: #9a3f18;
+  --color-flame: #e8a15a;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-ink);
+    color: var(--color-cream);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    line-height: 1.55;
+    text-rendering: optimizeLegibility;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: var(--color-ember);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ember);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+.hero-shade {
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--color-ink) 55%, transparent) 0%,
+      transparent 32%
+    ),
+    linear-gradient(
+      180deg,
+      transparent 18%,
+      color-mix(in oklab, var(--color-ink) 55%, transparent) 58%,
+      var(--color-ink) 100%
+    );
+}
+
+.reserve-form {
+  color-scheme: dark;
+}

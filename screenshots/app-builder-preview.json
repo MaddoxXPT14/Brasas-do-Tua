@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Brasas do Tua",
+      "hasCanvas": false,
+      "bodyTextLen": 2719,
+      "bodyTextHash": "ac6a31ba52d1fee4d3a1b7baec990fa3a2c4cb2a82db305f4efdd6808ae1091a",
+      "bodyTextPrefix": "Saltar para o conteúdo Brasas do Tua A casa A mesa Vozes Visita ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Brasas do Tua",
+      "hasCanvas": false,
+      "bodyTextLen": 2671,
+      "bodyTextHash": "d7492bfcfb954865d4469e9c6232145e36aa0640a3008a5751129f7fb5238495",
+      "bodyTextPrefix": "Saltar para o conteúdo Brasas do Tua Reservar MIRANDELA · TRÁS-O",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
