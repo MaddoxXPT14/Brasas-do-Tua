@@ -171,7 +171,7 @@ export function HousePage() {
                 href="#mesa"
                 className="inline-flex h-12 items-center justify-center rounded-md border border-cream/30 px-5 text-cream"
               >
-                Ver a carta
+                Ver a mesa
               </a>
               <StatusChip status={status} />
             </div>
@@ -213,44 +213,35 @@ export function HousePage() {
         </section>
 
         <section id="mesa" className="scroll-mt-20 bg-paper text-ink">
-          <div className="mx-auto max-w-6xl px-5 py-20 md:py-28">
-            <div className="grid gap-10 md:grid-cols-12">
-              <div className="md:col-span-5">
-                <p className="text-sm tracking-widest text-ember-deep uppercase">A carta</p>
-                <h2 className="mt-3 font-display text-4xl leading-tight md:text-5xl">
-                  O que a casa põe na mesa.
-                </h2>
-                <p className="mt-5 text-lg text-ink-soft">
-                  Preços com IVA incluído. Se tiver alergias ou intolerâncias, diga-o ao pedir.
-                </p>
-                <figure className="mt-8">
-                  <img
-                    src="/media/carta.jpg"
-                    alt="Carta impressa do Brasas do Tua, com entradas, carnes na brasa e peixe"
-                    className="w-full rounded-lg border border-line-paper object-cover"
-                  />
-                </figure>
-              </div>
-              <div className="grid gap-10 sm:grid-cols-2 md:col-span-7">
-                {MENU.map((section) => (
-                  <div key={section.title}>
-                    <h3 className="font-display text-2xl text-ember-deep">{section.title}</h3>
-                    <ul className="mt-3">
-                      {section.items.map((item) => (
-                        <li key={item.name} className="border-b border-line-paper py-3">
-                          <div className="flex items-baseline justify-between gap-4">
-                            <span className="font-medium">{item.name}</span>
-                            <span className="shrink-0 text-sm tabular-nums">{item.price}</span>
-                          </div>
-                          {item.detail ? (
-                            <p className="mt-1 text-sm text-ink-soft">{item.detail}</p>
-                          ) : null}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
+          <div className="mx-auto grid max-w-6xl gap-10 px-5 py-20 md:grid-cols-12 md:py-28">
+            <div className="md:col-span-4">
+              <p className="text-sm tracking-widest text-ember-deep uppercase">A mesa</p>
+              <h2 className="mt-3 font-display text-4xl leading-tight md:text-5xl">
+                O que a casa põe ao lume.
+              </h2>
+              <p className="mt-5 text-lg text-ink-soft">
+                Preços com IVA incluído. Se tiver alergias ou intolerâncias, avise ao pedir.
+              </p>
+            </div>
+            <div className="md:col-span-8">
+              {MENU.map((section) => (
+                <div key={section.title} className="mt-10 first:mt-0">
+                  <h3 className="text-sm tracking-widest text-ember-deep uppercase">{section.title}</h3>
+                  <ul>
+                    {section.items.map((item) => (
+                      <li key={item.name} className="border-b border-line-paper py-5">
+                        <span className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                          <span className="font-display text-2xl">{item.name}</span>
+                          <span className="text-sm text-ink-soft">{item.price}</span>
+                        </span>
+                        {item.detail ? (
+                          <span className="mt-2 block text-base text-ink-soft">{item.detail}</span>
+                        ) : null}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
         </section>

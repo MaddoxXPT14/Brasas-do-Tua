@@ -371,7 +371,7 @@ export const VOICES = [
 
 export const NAV = [
   { href: "#casa", id: "casa", label: "A casa" },
-  { href: "#mesa", id: "mesa", label: "Carta" },
+  { href: "#mesa", id: "mesa", label: "A mesa" },
   { href: "#vozes", id: "vozes", label: "Vozes" },
   { href: "#visita", id: "visita", label: "Visita" },
   { href: "#reserva", id: "reserva", label: "Reservar" },
