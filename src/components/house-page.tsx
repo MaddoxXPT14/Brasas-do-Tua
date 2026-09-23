@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Flame, MapPin, Menu, Phone, X } from "lucide-react";
+import { MapPin, Menu, Phone, X } from "lucide-react";
 import {
   DAY_NAMES,
   DINNER_TIMES,
@@ -84,11 +84,12 @@ export function HousePage() {
       </a>
       <header className="fixed inset-x-0 top-0 z-40 border-b border-line/80 bg-ink/90 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5">
-          <a href="#topo" className="flex items-center gap-2">
-            <Flame className="size-5 text-ember" aria-hidden="true" />
-            <span className="font-display text-lg leading-none tracking-tight">
-              Brasas do Tua
-            </span>
+          <a href="#topo" className="flex items-center">
+            <img
+              src="/media/logo.jpg"
+              alt="Brasas do Tua"
+              className="h-12 w-auto rounded-sm bg-white px-1.5"
+            />
           </a>
           <nav className="hidden items-center gap-6 lg:flex" aria-label="Secções">
             {NAV.map((item) => (
@@ -184,11 +185,11 @@ export function HousePage() {
             <figure className="md:col-span-7">
               <img
                 src="/media/sala.jpg"
-                alt="Sala de pedra e madeira, com o lume ao fundo"
-                className="w-full rounded-lg object-cover"
+                alt="Sala do restaurante, com mesas postas, tecto de madeira e a oliveira na parede"
+                className="aspect-[4/3] w-full rounded-lg object-cover"
               />
               <figcaption className="mt-3 text-sm text-mute">
-                O espírito da casa: mesa curta e lume ao fundo.
+                A sala, com as mesas postas e a oliveira na parede.
               </figcaption>
             </figure>
             <div className="md:col-span-5 md:pt-6">
@@ -402,7 +403,11 @@ export function HousePage() {
       <footer className="border-t border-line">
         <div className="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-10 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="font-display text-2xl">Brasas do Tua</p>
+            <img
+              src="/media/logo.jpg"
+              alt="Brasas do Tua"
+              className="h-16 w-auto rounded-sm bg-white px-2"
+            />
             <p className="mt-2 text-sm text-mute">
               {HOUSE.street}
               <br />
