@@ -260,70 +260,79 @@ export const DINNER_TIMES = [
   "22:30",
 ];
 
-export type Dish = {
-  id: string;
-  index: string;
+export type MenuItem = {
   name: string;
-  fire: string;
-  note: string;
-  image: string;
-  alt: string;
+  detail?: string;
+  price: string;
 };
 
-export const DISHES: Dish[] = [
+export type MenuSection = {
+  title: string;
+  items: MenuItem[];
+};
+
+export const MENU: MenuSection[] = [
   {
-    id: "posta",
-    index: "01",
-    name: "Posta mirandesa",
-    fire: "Forno de lenha",
-    note: "A posta grossa que quem passa por Mirandela vem procurar. Crosta viva, ponto pedido à mesa.",
-    image: "/media/posta.jpg",
-    alt: "Posta grelhada, cortada, com batata assada e o forno ao fundo",
+    title: "Entradas",
+    items: [
+      { name: "Alheira transmontana", price: "7,5 €" },
+      {
+        name: "Tábua",
+        detail: "Presunto, chouriço, queijo, marmelada, compota, tostas, azeitonas e amendoins",
+        price: "9 €",
+      },
+      { name: "Torrada de azeite", detail: "Pão caseiro", price: "2 €" },
+      { name: "Pão e azeitonas", price: "1 €" },
+    ],
   },
   {
-    id: "costeleta",
-    index: "02",
-    name: "Costeleta de vitela",
-    fire: "Na brasa",
-    note: "Osso, gordura e carvão. É a peça que os clientes voltam a nomear quando falam da casa.",
-    image: "/media/costeleta.jpg",
-    alt: "Costeleta de vitela com marcas de grelha num prato de ferro",
+    title: "Saladas",
+    items: [
+      { name: "Salada mista", detail: "Alface, tomate e cebola", price: "2,5 €" },
+      { name: "Salada de alface", price: "2 €" },
+    ],
   },
   {
-    id: "grelhado",
-    index: "03",
-    name: "Grelhado misto",
-    fire: "Vaca, porco, peru e alheira",
-    note: "Uma travessa para provar o que o chef faz na brasa. Quantidade de casa, para dividir sem pressa.",
-    image: "/media/grelhado.jpg",
-    alt: "Travessa de grelhado misto com alheira, pimentos e carnes na brasa",
+    title: "Sopas",
+    items: [
+      { name: "Sopa de legumes", price: "1,5 €" },
+      { name: "Caldo verde", price: "2 €" },
+    ],
   },
   {
-    id: "jardineira",
-    index: "04",
-    name: "Jardineira",
-    fire: "Quando vai ao lume",
-    note: "Carne tenra e legumes da horta. Não está todos os dias — pergunte o que o tacho tem.",
-    image: "/media/jardineira.jpg",
-    alt: "Tigela de barro com jardineira de carne e legumes",
+    title: "Vegetariano",
+    items: [
+      {
+        name: "Bolonhesa de cogumelos",
+        detail: "Cogumelos, nabo, alho francês, alho, tomate e cenoura",
+        price: "12 €",
+      },
+      { name: "Omelete de cebola e salsa", price: "7,5 €" },
+    ],
   },
   {
-    id: "pao",
-    index: "05",
-    name: "Pão e torrada do chef",
-    fire: "Casa",
-    note: "Pão caseiro, azeite e a torradinha que os habituais pedem antes da carne.",
-    image: "/media/pao.jpg",
-    alt: "Pão caseiro partido, azeite em taça de barro e sal grosso",
+    title: "Carne na brasa",
+    items: [
+      { name: "Posta transmontana", price: "15 €" },
+      { name: "Costeleta de vitela", price: "15 €" },
+      { name: "Bife de vitela", price: "10 €" },
+      { name: "Rodeão", price: "12 €" },
+      { name: "Costeleta do cachaço", price: "10 €" },
+      { name: "Entremeada", price: "10 €" },
+      { name: "Lombo", price: "10 €" },
+      { name: "Bife de peru ou frango", price: "10 €" },
+      { name: "Grelhada mista", price: "10 €" },
+      { name: "Cordeiro no forno", detail: "Ao fim-de-semana", price: "15 €" },
+      { name: "Leitão no forno", detail: "Ao fim-de-semana · 5 pedaços", price: "23 €" },
+    ],
   },
   {
-    id: "pudim",
-    index: "06",
-    name: "Pudim caseiro",
-    fire: "Para fechar",
-    note: "Caramelo e textura de casa. O fecho que as mesas pedem depois da brasa.",
-    image: "/media/pudim.jpg",
-    alt: "Pudim de caramelo caseiro num prato claro",
+    title: "Peixe",
+    items: [
+      { name: "Dourada", price: "12 €" },
+      { name: "Salmão", price: "15 €" },
+      { name: "Bacalhau", price: "13 €" },
+    ],
   },
 ];
 
@@ -362,7 +371,7 @@ export const VOICES = [
 
 export const NAV = [
   { href: "#casa", id: "casa", label: "A casa" },
-  { href: "#mesa", id: "mesa", label: "A mesa" },
+  { href: "#mesa", id: "mesa", label: "Carta" },
   { href: "#vozes", id: "vozes", label: "Vozes" },
   { href: "#visita", id: "visita", label: "Visita" },
   { href: "#reserva", id: "reserva", label: "Reservar" },

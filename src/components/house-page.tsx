@@ -1,11 +1,11 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { MapPin, Menu, Phone, X } from "lucide-react";
 import {
   DAY_NAMES,
   DINNER_TIMES,
-  DISHES,
   HOUSE,
   LUNCH_TIMES,
+  MENU,
   NAV,
   VOICES,
   WEEK_ROWS,
@@ -30,12 +30,10 @@ const fieldClass =
 export function HousePage() {
   const [openNav, setOpenNav] = useState(false);
   const [active, setActive] = useState("casa");
-  const [dishId, setDishId] = useState(DISHES[0]?.id ?? "posta");
   const [voice, setVoice] = useState(0);
   const [status, setStatus] = useState<OpenState | null>(null);
   const [today, setToday] = useState<number | null>(null);
 
-  const dish = DISHES.find((item) => item.id === dishId) ?? DISHES[0];
   const quote = VOICES[voice] ?? VOICES[0];
 
   useEffect(() => {
@@ -173,7 +171,7 @@ export function HousePage() {
                 href="#mesa"
                 className="inline-flex h-12 items-center justify-center rounded-md border border-cream/30 px-5 text-cream"
               >
-                Ver a mesa
+                Ver a carta
               </a>
               <StatusChip status={status} />
             </div>
@@ -203,9 +201,7 @@ export function HousePage() {
                 brasa e da mesa ao mesmo tempo.
               </p>
               <p className="mt-4 text-lg text-mute">
-                A cozinha é transmontana e directa: posta no forno de lenha,
-                grelhados, pão e azeite de casa, pudim para fechar. Os temperos
-                são os da região, sem disfarce.
+                A cozinha é transmontana e directa: posta, costeleta e o resto da brasa, com entradas, sopa e peixe. Os temperos são os da região, sem disfarce.
               </p>
               <ul className="mt-8 space-y-4 border-t border-line pt-6">
                 <Fact title="Sala pequena" text="Serviço atento, mesa a mesa." />
@@ -217,58 +213,44 @@ export function HousePage() {
         </section>
 
         <section id="mesa" className="scroll-mt-20 bg-paper text-ink">
-          <div className="mx-auto grid max-w-6xl gap-10 px-5 py-20 md:grid-cols-12 md:py-28">
-            <div className="md:col-span-5">
-              <p className="text-sm tracking-widest text-ember-deep uppercase">A mesa</p>
-              <h2 className="mt-3 font-display text-4xl leading-tight md:text-5xl">
-                O que a casa costuma pôr ao lume.
-              </h2>
-              <p className="mt-5 text-lg text-ink-soft">
-                A ementa segue o forno e o mercado. Não há preços fixos neste
-                sítio — pergunte ao chef. Estas são as peças que as mesas pedem.
-              </p>
-              {dish ? (
+          <div className="mx-auto max-w-6xl px-5 py-20 md:py-28">
+            <div className="grid gap-10 md:grid-cols-12">
+              <div className="md:col-span-5">
+                <p className="text-sm tracking-widest text-ember-deep uppercase">A carta</p>
+                <h2 className="mt-3 font-display text-4xl leading-tight md:text-5xl">
+                  O que a casa põe na mesa.
+                </h2>
+                <p className="mt-5 text-lg text-ink-soft">
+                  Preços com IVA incluído. Se tiver alergias ou intolerâncias, diga-o ao pedir.
+                </p>
                 <figure className="mt-8">
                   <img
-                    src={dish.image}
-                    alt={dish.alt}
-                    className="aspect-4/3 w-full rounded-lg object-cover"
+                    src="/media/carta.jpg"
+                    alt="Carta impressa do Brasas do Tua, com entradas, carnes na brasa e peixe"
+                    className="w-full rounded-lg border border-line-paper object-cover"
                   />
-                  <figcaption className="mt-3 text-sm text-ink-soft">
-                    {dish.name} · fotografia de ambiente. A apresentação muda com o dia.
-                  </figcaption>
                 </figure>
-              ) : null}
-            </div>
-            <div className="md:col-span-7 md:pt-16">
-              <ul>
-                {DISHES.map((item) => {
-                  const selected = item.id === dish?.id;
-                  return (
-                    <li key={item.id} className="border-b border-line-paper">
-                      <button
-                        type="button"
-                        onClick={() => setDishId(item.id)}
-                        className="flex w-full items-start gap-4 py-5 text-left"
-                        aria-pressed={selected}
-                      >
-                        <span className="w-8 pt-1 font-display text-ember-deep">
-                          {item.index}
-                        </span>
-                        <span className="min-w-0 flex-1">
-                          <span className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                            <span className="font-display text-2xl">{item.name}</span>
-                            <span className="text-sm text-ink-soft">{item.fire}</span>
-                          </span>
-                          {selected ? (
-                            <span className="mt-2 block text-base text-ink-soft">{item.note}</span>
+              </div>
+              <div className="grid gap-10 sm:grid-cols-2 md:col-span-7">
+                {MENU.map((section) => (
+                  <div key={section.title}>
+                    <h3 className="font-display text-2xl text-ember-deep">{section.title}</h3>
+                    <ul className="mt-3">
+                      {section.items.map((item) => (
+                        <li key={item.name} className="border-b border-line-paper py-3">
+                          <div className="flex items-baseline justify-between gap-4">
+                            <span className="font-medium">{item.name}</span>
+                            <span className="shrink-0 text-sm tabular-nums">{item.price}</span>
+                          </div>
+                          {item.detail ? (
+                            <p className="mt-1 text-sm text-ink-soft">{item.detail}</p>
                           ) : null}
-                        </span>
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
