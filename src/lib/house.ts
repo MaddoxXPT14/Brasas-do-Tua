@@ -271,7 +271,6 @@ export type MenuItem = {
 export type MenuSection = {
   title: string;
   note?: string;
-  compact?: boolean;
   items: MenuItem[];
 };
 
@@ -380,7 +379,6 @@ export const MENU: MenuSection[] = [
   },
   {
     title: "Bebidas",
-    compact: true,
     items: [
       { name: "Água 1,5 L", price: "2 €" },
       { name: "Água 50 cl", price: "1 €" },
@@ -401,7 +399,6 @@ export const MENU: MenuSection[] = [
   },
   {
     title: "Para levar",
-    compact: true,
     items: [
       { name: "Embalagem", price: "1 €" },
       { name: "Saco", price: "0,15 €" },

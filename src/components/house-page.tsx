@@ -222,45 +222,54 @@ export function HousePage() {
         </section>
 
         <section id="mesa" className="scroll-mt-20 bg-paper text-ink">
-          <div className="mx-auto grid max-w-6xl gap-10 px-5 py-20 md:grid-cols-12 md:py-28">
-            <div className="md:col-span-4">
+          <div className="mx-auto max-w-6xl px-5 py-16 md:py-20">
+            <div className="max-w-2xl">
               <p className="text-sm tracking-widest text-ember-deep uppercase">A mesa</p>
               <h2 className="mt-3 font-display text-4xl leading-tight md:text-5xl">
                 O que a casa põe ao lume.
               </h2>
-              <p className="mt-5 text-lg text-ink-soft">
+              <p className="mt-4 text-lg text-ink-soft">
                 Preços com IVA incluído. As fotografias são dos pratos da casa.
                 Se tiver alergias ou intolerâncias, avise ao pedir.
               </p>
             </div>
-            <div className="md:col-span-8">
+            <div className="mt-12 space-y-10">
               {MENU.map((section) => (
-                <div key={section.title} className="mt-10 first:mt-0">
+                <div key={section.title}>
                   <h3 className="text-sm tracking-widest text-ember-deep uppercase">{section.title}</h3>
                   {section.note ? (
-                    <p className="mt-2 text-base text-ink-soft">{section.note}</p>
+                    <p className="mt-2 text-sm text-ink-soft">{section.note}</p>
                   ) : null}
-                  <ul className={section.compact ? "sm:columns-2 sm:gap-x-10" : undefined}>
+                  <ul
+                    className={
+                      section.items.length >= 4
+                        ? "mt-3 grid gap-x-12 sm:grid-cols-2"
+                        : "mt-3 sm:max-w-xl"
+                    }
+                  >
                     {section.items.map((item) => (
                       <li
                         key={`${section.title}-${item.name}`}
-                        className="break-inside-avoid border-b border-line-paper py-4"
+                        className="border-b border-line-paper py-2.5"
                       >
-                        <div className={item.image ? "flex items-center gap-4" : undefined}>
+                        <div className={item.image ? "flex items-center gap-3" : undefined}>
                           {item.image ? (
                             <img
                               src={item.image}
                               alt={item.imageAlt ?? item.name}
-                              className="size-24 shrink-0 rounded-md object-cover sm:size-32"
+                              className="size-14 shrink-0 rounded-md object-cover"
                             />
                           ) : null}
                           <div className="min-w-0 flex-1">
-                            <span className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                              <span className="font-display text-2xl">{item.name}</span>
-                              <span className="text-sm text-ink-soft">{item.price}</span>
+                            <span className="flex items-baseline gap-3">
+                              <span className="font-display text-xl leading-tight">{item.name}</span>
+                              <span className="mb-1 h-px min-w-4 flex-1 bg-line-paper" />
+                              <span className="shrink-0 text-sm text-ink-soft tabular-nums">
+                                {item.price}
+                              </span>
                             </span>
                             {item.detail ? (
-                              <span className="mt-1 block text-base text-ink-soft">{item.detail}</span>
+                              <span className="mt-0.5 block text-sm text-ink-soft">{item.detail}</span>
                             ) : null}
                           </div>
                         </div>
