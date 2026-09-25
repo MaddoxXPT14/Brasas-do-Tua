@@ -331,7 +331,7 @@ export const MENU: MenuSection[] = [
     items: [
       {
         name: "Alheira transmontana",
-        detail: "Batatas fritas e arroz",
+        detail: "Batata cozida e grelos",
         price: "10 €",
         image: "/media/alheira.jpg",
         imageAlt: "Alheira com batata e grelos, a brasa ao fundo",
