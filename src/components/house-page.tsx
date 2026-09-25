@@ -439,6 +439,7 @@ export function HousePage() {
 function SocialLinks({ className = "" }: { className?: string }) {
   const links = [
     { href: HOUSE.facebook, label: "Facebook" },
+    { href: HOUSE.instagram, label: "Instagram" },
     { href: HOUSE.trip, label: "Tripadvisor" },
   ];
   return (

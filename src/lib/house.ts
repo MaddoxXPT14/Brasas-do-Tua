@@ -8,6 +8,7 @@ export const HOUSE = {
   mapsUrl:
     "https://www.google.com/maps/dir/?api=1&destination=41.48145,-7.183831",
   facebook: "https://www.facebook.com/p/Brasas-do-Tua-100071211063831/",
+  instagram: "https://www.instagram.com/brasasdotua/",
   trip: "https://www.tripadvisor.pt/Restaurant_Review-g2360351-d27983089-Reviews-Brasas_Do_Tua-Mirandela_Braganca_District_Northern_Portugal.html",
 };
 
