@@ -179,45 +179,45 @@ export function HousePage() {
         </section>
 
         <section id="casa" className="scroll-mt-20 border-t border-line">
-          <div className="mx-auto grid max-w-6xl gap-10 px-5 py-20 md:grid-cols-12 md:py-28">
-            <figure className="md:col-span-7">
-              <div className="grid gap-3 sm:grid-cols-5">
-                <img
-                  src="/media/sala.jpg"
-                  alt="Sala principal, com mesas postas, tecto de madeira e a oliveira na parede"
-                  className="aspect-[4/3] w-full rounded-lg object-cover sm:col-span-3"
-                />
-                <img
-                  src="/media/sala-vermelha.jpg"
-                  alt="Outra sala, com toalhas vermelhas e a vista de Mirandela na parede"
-                  className="aspect-[4/3] w-full rounded-lg object-cover sm:col-span-2 sm:aspect-auto sm:h-full"
-                />
+          <div className="mx-auto max-w-6xl px-5 py-16 md:py-20">
+            <div className="grid items-end gap-6 md:grid-cols-2">
+              <div>
+                <p className="text-sm tracking-widest text-ember uppercase">A casa</p>
+                <h2 className="mt-3 font-display text-4xl leading-tight md:text-5xl">
+                  O chef cozinha e recebe.
+                </h2>
               </div>
-              <figcaption className="mt-3 text-sm text-mute">
-                Duas salas: o tecto de madeira e a mesa de toalha vermelha.
-              </figcaption>
-            </figure>
-            <div className="md:col-span-5 md:pt-6">
-              <p className="text-sm tracking-widest text-ember uppercase">A casa</p>
-              <h2 className="mt-3 font-display text-4xl leading-tight md:text-5xl">
-                O chef cozinha e recebe.
-              </h2>
-              <p className="mt-5 text-lg text-mute">
-                Na Rua Vasco da Gama, em Mirandela, a sala é curta de propósito.
-                Quem entra encontra o chef Beto — o senhor Alberto — a tratar da
-                brasa e da mesa ao mesmo tempo.
-              </p>
-              <p className="mt-4 text-lg text-mute">
-                A cozinha é transmontana e directa: posta, costeleta e o resto da brasa, com entradas, sopa e peixe. Os temperos são os da região, sem disfarce.
-              </p>
-              <ul className="mt-8 space-y-4 border-t border-line pt-6">
-                <Fact title="Sala pequena" text="Serviço atento, mesa a mesa." />
-                <Fact title="Brasa e forno" text="Posta, costeleta, alheira, grelhado misto." />
-                <Fact title="Cadeira de bebé" text="Há cadeira para a mesa." />
-                <Fact title="Multibanco" text="Pode pagar com cartão." />
-                <Fact title="Terça encerrada" text="Nos outros dias, almoço e jantar." />
-              </ul>
+              <div className="space-y-3 text-lg text-mute">
+                <p>
+                  Na Rua Vasco da Gama, em Mirandela, a sala é curta de propósito.
+                  Quem entra encontra o chef Beto — o senhor Alberto — a tratar da
+                  brasa e da mesa ao mesmo tempo.
+                </p>
+                <p>
+                  A cozinha é transmontana e directa: posta, costeleta e o resto da
+                  brasa, com entradas, sopa e peixe.
+                </p>
+              </div>
             </div>
+            <div className="mt-10 grid gap-3 sm:grid-cols-2">
+              <img
+                src="/media/sala.jpg"
+                alt="Sala do restaurante"
+                className="aspect-[3/2] w-full rounded-lg object-cover"
+              />
+              <img
+                src="/media/sala-vermelha.jpg"
+                alt="Segunda sala do restaurante"
+                className="aspect-[3/2] w-full rounded-lg object-cover"
+              />
+            </div>
+            <ul className="mt-8 grid gap-x-8 gap-y-5 border-t border-line pt-6 sm:grid-cols-2 lg:grid-cols-5">
+              <Fact title="Sala pequena" text="Serviço atento, mesa a mesa." />
+              <Fact title="Brasa e forno" text="Posta, costeleta, alheira, grelhado misto." />
+              <Fact title="Cadeira de bebé" text="Há cadeira para a mesa." />
+              <Fact title="Multibanco" text="Pode pagar com cartão." />
+              <Fact title="Terça encerrada" text="Nos outros dias, almoço e jantar." />
+            </ul>
           </div>
         </section>
 
