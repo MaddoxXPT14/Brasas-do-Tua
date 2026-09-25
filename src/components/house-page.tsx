@@ -181,13 +181,20 @@ export function HousePage() {
         <section id="casa" className="scroll-mt-20 border-t border-line">
           <div className="mx-auto grid max-w-6xl gap-10 px-5 py-20 md:grid-cols-12 md:py-28">
             <figure className="md:col-span-7">
-              <img
-                src="/media/sala.jpg"
-                alt="Sala do restaurante, com mesas postas, tecto de madeira e a oliveira na parede"
-                className="aspect-[4/3] w-full rounded-lg object-cover"
-              />
+              <div className="grid gap-3 sm:grid-cols-5">
+                <img
+                  src="/media/sala.jpg"
+                  alt="Sala principal, com mesas postas, tecto de madeira e a oliveira na parede"
+                  className="aspect-[4/3] w-full rounded-lg object-cover sm:col-span-3"
+                />
+                <img
+                  src="/media/sala-vermelha.jpg"
+                  alt="Outra sala, com toalhas vermelhas e a vista de Mirandela na parede"
+                  className="aspect-[4/3] w-full rounded-lg object-cover sm:col-span-2 sm:aspect-auto sm:h-full"
+                />
+              </div>
               <figcaption className="mt-3 text-sm text-mute">
-                A sala, com as mesas postas e a oliveira na parede.
+                Duas salas: o tecto de madeira e a mesa de toalha vermelha.
               </figcaption>
             </figure>
             <div className="md:col-span-5 md:pt-6">
@@ -220,23 +227,38 @@ export function HousePage() {
                 O que a casa põe ao lume.
               </h2>
               <p className="mt-5 text-lg text-ink-soft">
-                Preços com IVA incluído. Se tiver alergias ou intolerâncias, avise ao pedir.
+                Preços com IVA incluído. As fotografias são dos pratos da casa.
+                Se tiver alergias ou intolerâncias, avise ao pedir.
               </p>
             </div>
             <div className="md:col-span-8">
               {MENU.map((section) => (
                 <div key={section.title} className="mt-10 first:mt-0">
                   <h3 className="text-sm tracking-widest text-ember-deep uppercase">{section.title}</h3>
-                  <ul>
+                  <ul className={section.compact ? "sm:columns-2 sm:gap-x-10" : undefined}>
                     {section.items.map((item) => (
-                      <li key={item.name} className="border-b border-line-paper py-5">
-                        <span className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                          <span className="font-display text-2xl">{item.name}</span>
-                          <span className="text-sm text-ink-soft">{item.price}</span>
-                        </span>
-                        {item.detail ? (
-                          <span className="mt-2 block text-base text-ink-soft">{item.detail}</span>
-                        ) : null}
+                      <li
+                        key={`${section.title}-${item.name}`}
+                        className="break-inside-avoid border-b border-line-paper py-4"
+                      >
+                        <div className={item.image ? "flex items-center gap-4" : undefined}>
+                          {item.image ? (
+                            <img
+                              src={item.image}
+                              alt={item.imageAlt ?? item.name}
+                              className="size-24 shrink-0 rounded-md object-cover sm:size-32"
+                            />
+                          ) : null}
+                          <div className="min-w-0 flex-1">
+                            <span className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                              <span className="font-display text-2xl">{item.name}</span>
+                              <span className="text-sm text-ink-soft">{item.price}</span>
+                            </span>
+                            {item.detail ? (
+                              <span className="mt-1 block text-base text-ink-soft">{item.detail}</span>
+                            ) : null}
+                          </div>
+                        </div>
                       </li>
                     ))}
                   </ul>

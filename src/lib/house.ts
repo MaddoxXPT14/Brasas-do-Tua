@@ -264,10 +264,13 @@ export type MenuItem = {
   name: string;
   detail?: string;
   price: string;
+  image?: string;
+  imageAlt?: string;
 };
 
 export type MenuSection = {
   title: string;
+  compact?: boolean;
   items: MenuItem[];
 };
 
@@ -275,28 +278,40 @@ export const MENU: MenuSection[] = [
   {
     title: "Entradas",
     items: [
-      { name: "Alheira transmontana", price: "7,5 €" },
+      {
+        name: "Alheira transmontana",
+        price: "7,5 €",
+        image: "/media/alheira-entrada.jpg",
+        imageAlt: "Alheira na tijela, com laranja e azeitonas",
+      },
       {
         name: "Tábua",
-        detail: "Presunto, chouriço, queijo, marmelada, compota, tostas, azeitonas e amendoins",
-        price: "9 €",
+        detail:
+          "Presunto, chouriço, queijo, marmelada, compota, tostas e azeitonas. A constituição pode variar.",
+        price: "10 €",
+        image: "/media/tabua.jpg",
+        imageAlt: "Tábua com presunto, queijo, chouriço, tostas, azeitonas e compota",
       },
-      { name: "Torrada de azeite", detail: "Pão caseiro", price: "2 €" },
-      { name: "Pão e azeitonas", price: "1 €" },
+      {
+        name: "Torrada de azeite",
+        detail: "Pão caseiro",
+        price: "3 €",
+        image: "/media/torrada.jpg",
+        imageAlt: "Torrada de azeite em pão caseiro",
+      },
+      { name: "Pão e azeitonas", detail: "Pão caseiro", price: "2,5 €" },
+      { name: "Pão", detail: "Pão caseiro", price: "1 €" },
     ],
   },
   {
-    title: "Saladas",
-    items: [
-      { name: "Salada mista", detail: "Alface, tomate e cebola", price: "2,5 €" },
-      { name: "Salada de alface", price: "2 €" },
-    ],
+    title: "Salada",
+    items: [{ name: "Salada mista", price: "3,5 €" }],
   },
   {
     title: "Sopas",
     items: [
-      { name: "Sopa de legumes", price: "1,5 €" },
-      { name: "Caldo verde", price: "2 €" },
+      { name: "Sopa de legumes", price: "3 €" },
+      { name: "Caldo verde", price: "3 €" },
     ],
   },
   {
@@ -304,34 +319,88 @@ export const MENU: MenuSection[] = [
     items: [
       {
         name: "Bolonhesa de cogumelos",
-        detail: "Cogumelos, nabo, alho francês, alho, tomate e cenoura",
-        price: "12 €",
+        detail: "Cogumelos, caju, alho-francês, alho, tomate e cenoura",
+        price: "15 €",
       },
-      { name: "Omelete de cebola e salsa", price: "7,5 €" },
+      { name: "Omelete de cebola e salsa", price: "10 €" },
     ],
   },
   {
     title: "Carne na brasa",
     items: [
-      { name: "Posta transmontana", price: "15 €" },
-      { name: "Costeleta de vitela", price: "15 €" },
-      { name: "Bife de vitela", price: "10 €" },
-      { name: "Rodeão", price: "12 €" },
+      {
+        name: "Alheira transmontana",
+        price: "10 €",
+        image: "/media/alheira.jpg",
+        imageAlt: "Alheira com batata e grelos, a brasa ao fundo",
+      },
+      { name: "Posta transmontana", price: "17 €" },
+      { name: "Costeleta de vitela", price: "14 €" },
+      { name: "Bife de vitela", price: "11 €" },
+      {
+        name: "Rodeão",
+        price: "13 €",
+        image: "/media/rodeao.jpg",
+        imageAlt: "Rodeão com arroz, batata frita e laranja",
+      },
       { name: "Costeleta do cachaço", price: "10 €" },
       { name: "Entremeada", price: "10 €" },
-      { name: "Lombo", price: "10 €" },
-      { name: "Bife de peru ou frango", price: "10 €" },
-      { name: "Grelhada mista", price: "10 €" },
-      { name: "Cordeiro no forno", detail: "Ao fim-de-semana", price: "15 €" },
-      { name: "Leitão no forno", detail: "Ao fim-de-semana · 5 pedaços", price: "23 €" },
+      { name: "Lombo", price: "11 €" },
+      { name: "Bife de peru ou frango", price: "11 €" },
+      {
+        name: "Grelhada mista",
+        price: "13 €",
+        image: "/media/grelhada-mista.jpg",
+        imageAlt: "Grelhada mista com laranja e azeitonas",
+      },
+      { name: "Cordeiro", price: "18 €" },
     ],
   },
   {
     title: "Peixe",
     items: [
-      { name: "Dourada", price: "12 €" },
       { name: "Salmão", price: "15 €" },
-      { name: "Bacalhau", price: "13 €" },
+      { name: "Bacalhau", price: "18 €" },
+    ],
+  },
+  {
+    title: "Sobremesas",
+    items: [
+      { name: "Pudim de ovos", price: "4 €" },
+      { name: "Bolo de bolacha", price: "4 €" },
+      { name: "Leite-creme", price: "2,5 €" },
+      { name: "Mousse de chocolate", price: "2,5 €" },
+      { name: "Surpresa", price: "4 €" },
+      { name: "Fruta", price: "1,5 €" },
+    ],
+  },
+  {
+    title: "Bebidas",
+    compact: true,
+    items: [
+      { name: "Água 1,5 L", price: "2 €" },
+      { name: "Água 50 cl", price: "1 €" },
+      { name: "Frize ou Pedras", price: "1,5 €" },
+      { name: "Ice tea", price: "1,5 €" },
+      { name: "Coca-Cola ou Pepsi 1 L", price: "3,5 €" },
+      { name: "Coca-Cola ou Pepsi 33 cl", price: "1,5 €" },
+      { name: "Fanta ou Sumol", price: "1,5 €" },
+      { name: "Café", price: "1 €" },
+      { name: "Casal Garcia", price: "10 €" },
+      { name: "Muralhas", price: "12 €" },
+      { name: "Gazela", price: "10 €" },
+      { name: "Mateus Rosé", price: "10 €" },
+      { name: "Quinta da Aveleda", price: "15 €" },
+      { name: "Vinho da casa, 0,5 L", detail: "Tinto ou branco", price: "5 €" },
+      { name: "Diversos", price: "10 €" },
+    ],
+  },
+  {
+    title: "Para levar",
+    compact: true,
+    items: [
+      { name: "Embalagem", price: "1 €" },
+      { name: "Saco", price: "0,15 €" },
     ],
   },
 ];
