@@ -388,6 +388,7 @@ export function HousePage() {
                   {HOUSE.phoneDisplay}
                 </a>
                 <p className="mt-4 text-mute">Multibanco. Há cadeira de bebé.</p>
+                <SocialLinks className="mt-4" />
                 <a
                   href={HOUSE.mapsUrl}
                   target="_blank"
@@ -423,6 +424,7 @@ export function HousePage() {
               <br />
               {HOUSE.postal}
             </p>
+            <SocialLinks className="mt-4" />
           </div>
           <p className="max-w-sm text-sm text-mute">
             Cozinha de brasa em Mirandela. Reserve por telefone ou WhatsApp — a
@@ -431,6 +433,28 @@ export function HousePage() {
         </div>
       </footer>
     </div>
+  );
+}
+
+function SocialLinks({ className = "" }: { className?: string }) {
+  const links = [
+    { href: HOUSE.facebook, label: "Facebook" },
+    { href: HOUSE.trip, label: "Tripadvisor" },
+  ];
+  return (
+    <nav aria-label="Redes sociais" className={`flex flex-wrap gap-2 ${className}`}>
+      {links.map((link) => (
+        <a
+          key={link.label}
+          href={link.href}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex h-11 items-center rounded-md border border-line px-4 text-sm"
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
   );
 }
 
