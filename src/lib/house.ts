@@ -270,6 +270,7 @@ export type MenuItem = {
 
 export type MenuSection = {
   title: string;
+  note?: string;
   compact?: boolean;
   items: MenuItem[];
 };
@@ -327,6 +328,7 @@ export const MENU: MenuSection[] = [
   },
   {
     title: "Carne na brasa",
+    note: "Sempre com batatas fritas e arroz.",
     items: [
       {
         name: "Alheira transmontana",

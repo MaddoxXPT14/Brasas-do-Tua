@@ -213,6 +213,8 @@ export function HousePage() {
               <ul className="mt-8 space-y-4 border-t border-line pt-6">
                 <Fact title="Sala pequena" text="Serviço atento, mesa a mesa." />
                 <Fact title="Brasa e forno" text="Posta, costeleta, alheira, grelhado misto." />
+                <Fact title="Cadeira de bebé" text="Há cadeira para a mesa." />
+                <Fact title="Multibanco" text="Pode pagar com cartão." />
                 <Fact title="Terça encerrada" text="Nos outros dias, almoço e jantar." />
               </ul>
             </div>
@@ -235,6 +237,9 @@ export function HousePage() {
               {MENU.map((section) => (
                 <div key={section.title} className="mt-10 first:mt-0">
                   <h3 className="text-sm tracking-widest text-ember-deep uppercase">{section.title}</h3>
+                  {section.note ? (
+                    <p className="mt-2 text-base text-ink-soft">{section.note}</p>
+                  ) : null}
                   <ul className={section.compact ? "sm:columns-2 sm:gap-x-10" : undefined}>
                     {section.items.map((item) => (
                       <li
@@ -373,6 +378,7 @@ export function HousePage() {
                   <Phone className="size-5 text-ember" aria-hidden="true" />
                   {HOUSE.phoneDisplay}
                 </a>
+                <p className="mt-4 text-mute">Multibanco. Há cadeira de bebé.</p>
                 <a
                   href={HOUSE.mapsUrl}
                   target="_blank"
